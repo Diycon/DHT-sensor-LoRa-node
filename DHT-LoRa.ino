@@ -144,13 +144,13 @@ void PayLoad() {
     int16_t temp = (int16_t)(t * 100);
     int16_t humi = (int16_t)(h * 100);
 // Shift bits and store the value in bytes
-    byte payload[4];
+    byte payload[4]; // Set the number of bytes that will be sent
     payload[0] = temp >> 8;
     payload[1] = temp & 0xFF;
     payload[2] = humi >> 8;
     payload[3] = humi & 0xFF;  
 // Sending the Payload    
-  LMIC_setTxData2(1, payload, sizeof(payload)-1, 0);    
+  LMIC_setTxData2(1, payload, sizeof(payload), 0);    
   Serial.print("Humidity: ");
   Serial.print(h);
   Serial.print(" %\t");
